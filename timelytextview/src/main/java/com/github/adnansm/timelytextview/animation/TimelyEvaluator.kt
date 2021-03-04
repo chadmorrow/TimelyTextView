@@ -1,6 +1,6 @@
 package com.github.adnansm.timelytextview.animation
 
-import com.nineoldandroids.animation.TypeEvaluator
+import android.animation.TypeEvaluator
 
 class TimelyEvaluator : TypeEvaluator<Array<FloatArray>?> {
     private var cachedPoints: Array<FloatArray>? = null

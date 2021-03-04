@@ -1,30 +1,16 @@
 package com.github.adnansm.timelytextview
 
 import android.content.Context
-import com.github.adnansm.timelytextview.model.core.Figure
-import com.github.adnansm.timelytextview.model.number.Eight
-import com.github.adnansm.timelytextview.model.number.Five
-import com.github.adnansm.timelytextview.model.number.Four
-import com.github.adnansm.timelytextview.model.number.Nine
-import com.github.adnansm.timelytextview.model.number.One
-import com.github.adnansm.timelytextview.model.number.Seven
-import com.github.adnansm.timelytextview.model.number.Six
-import com.github.adnansm.timelytextview.model.number.Three
-import com.github.adnansm.timelytextview.model.number.Two
-import com.github.adnansm.timelytextview.model.number.Zero
-import android.content.res.TypedArray
 import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Paint
 import android.graphics.Path
 import android.util.AttributeSet
 import android.view.View
-import com.github.adnansm.timelytextview.R
-import com.github.adnansm.timelytextview.TimelyView
 import com.github.adnansm.timelytextview.animation.TimelyEvaluator
 import com.github.adnansm.timelytextview.model.getControlPointsFor
-import com.nineoldandroids.animation.ObjectAnimator
-import com.nineoldandroids.util.Property
+import android.animation.ObjectAnimator
+import android.util.Property
 
 class TimelyView : View {
     private var mPaint: Paint? = null

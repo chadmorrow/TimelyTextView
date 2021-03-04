@@ -1,8 +1,5 @@
 package com.github.adnansm.timelytextview.model.core
 
-import com.github.adnansm.timelytextview.model.number.*
-import java.security.InvalidParameterException
-
 
 /**
  * Model class for cubic bezier figure
