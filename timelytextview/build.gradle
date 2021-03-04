@@ -1,28 +1,34 @@
 apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'maven-publish'
 
 dependencies {
-    compile 'com.nineoldandroids:library:2.4.0'
+    implementation 'com.nineoldandroids:library:2.4.0'
+    implementation "androidx.core:core-ktx:1.3.2"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }
 
 android {
-    compileSdkVersion 19
-    buildToolsVersion '19.1.0'
-
+    compileSdkVersion(30)
     defaultConfig {
-        minSdkVersion 1
-        targetSdkVersion 19
-        versionCode 1
-        versionName "1.0"
+        minSdkVersion(24)
+        targetSdkVersion(30)
+        versionCode = 1
+        versionName = "1.0"
     }
 
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_7
-        targetCompatibility JavaVersion.VERSION_1_7
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
 
     buildTypes {
-        release {
+        getByName("release") {
             minifyEnabled false
         }
     }
+    buildToolsVersion '30.0.2'
+}
+repositories {
+    mavenCentral()
 }

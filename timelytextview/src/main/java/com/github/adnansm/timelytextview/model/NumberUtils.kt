@@ -1,37 +1,21 @@
-package com.github.adnansm.timelytextview.model;
+package com.github.adnansm.timelytextview.model
 
-import com.github.adnansm.timelytextview.model.number.*;
+import com.github.adnansm.timelytextview.model.number.*
+import java.security.InvalidParameterException
 
-import java.security.InvalidParameterException;
-
-public class NumberUtils {
-
-    public static float[][] getControlPointsFor(int start) {
-        switch (start) {
-            case (-1):
-                return Null.getInstance().getControlPoints();
-            case 0:
-                return Zero.getInstance().getControlPoints();
-            case 1:
-                return One.getInstance().getControlPoints();
-            case 2:
-                return Two.getInstance().getControlPoints();
-            case 3:
-                return Three.getInstance().getControlPoints();
-            case 4:
-                return Four.getInstance().getControlPoints();
-            case 5:
-                return Five.getInstance().getControlPoints();
-            case 6:
-                return Six.getInstance().getControlPoints();
-            case 7:
-                return Seven.getInstance().getControlPoints();
-            case 8:
-                return Eight.getInstance().getControlPoints();
-            case 9:
-                return Nine.getInstance().getControlPoints();
-            default:
-                throw new InvalidParameterException("Unsupported number requested");
+fun getControlPointsFor(start: Int): Array<FloatArray>? {
+        return when (start) {
+            -1 -> Null.instance.controlPoints
+            0 -> Zero.instance.controlPoints
+            1 -> One.instance.controlPoints
+            2 -> Two.instance.controlPoints
+            3 -> Three.instance.controlPoints
+            4 -> Four.instance.controlPoints
+            5 -> Five.instance.controlPoints
+            6 -> Six.instance.controlPoints
+            7 -> Seven.instance.controlPoints
+            8 -> Eight.instance.controlPoints
+            9 -> Nine.instance.controlPoints
+            else -> throw InvalidParameterException("Unsupported number requested")
         }
     }
-}

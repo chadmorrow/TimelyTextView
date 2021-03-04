@@ -2,7 +2,7 @@
 <resources>
 
     <declare-styleable name="TimelyView">
-        <attr name="text_color" format="color"></attr>
+        <attr name="text_color" format="color" />
     </declare-styleable>
 
 </resources>

@@ -8,29 +8,27 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.SeekBar;
 import android.widget.Spinner;
+
 import com.github.adnansm.timelytextview.TimelyView;
 import com.nineoldandroids.animation.ObjectAnimator;
 
 public class MainActivity extends Activity {
-    public static final int            DURATION       = 1000;
-    public static final int            NO_VALUE       = -1;
-    private             TimelyView     timelyView     = null;
-    private             SeekBar        seekBar        = null;
-    private             Spinner        fromSpinner    = null;
-    private             Spinner        toSpinner      = null;
-    private volatile    ObjectAnimator objectAnimator = null;
+    public static final int DURATION = 1000;
+    public static final int NO_VALUE = -1;
+    private TimelyView timelyView = null;
+    private volatile ObjectAnimator objectAnimator = null;
 
     private volatile int from = NO_VALUE;
-    private volatile int to   = NO_VALUE;
+    private volatile int to = NO_VALUE;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         timelyView = (TimelyView) findViewById(R.id.textView1);
-        seekBar = (SeekBar) findViewById(R.id.seekBar);
-        fromSpinner = (Spinner) findViewById(R.id.fromSpinner);
-        toSpinner = (Spinner) findViewById(R.id.toSpinner);
+        SeekBar seekBar = (SeekBar) findViewById(R.id.seekBar);
+        Spinner fromSpinner = (Spinner) findViewById(R.id.fromSpinner);
+        Spinner toSpinner = (Spinner) findViewById(R.id.toSpinner);
 
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.from_numbers_array, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -40,7 +38,7 @@ public class MainActivity extends Activity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 from = position - 1;
-                if(from != NO_VALUE && to != NO_VALUE) {
+                if (from != NO_VALUE && to != NO_VALUE) {
                     objectAnimator = timelyView.animate(from, to);
                     objectAnimator.setDuration(DURATION);
                 } else {
@@ -56,7 +54,7 @@ public class MainActivity extends Activity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 to = position - 1;
-                if(from != NO_VALUE && to != NO_VALUE) {
+                if (from != NO_VALUE && to != NO_VALUE) {
                     objectAnimator = timelyView.animate(from, to);
                     objectAnimator.setDuration(DURATION);
                 } else {
@@ -74,7 +72,7 @@ public class MainActivity extends Activity {
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                if(objectAnimator != null) objectAnimator.setCurrentPlayTime(progress);
+                if (objectAnimator != null) objectAnimator.setCurrentPlayTime(progress);
             }
 
             @Override
