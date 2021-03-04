@@ -51,6 +51,14 @@ afterEvaluate {
                 artifactId = 'timelytextview'
                 version = '1.1'
             }
+
+            gpr(MavenPublication) {
+                from components.debug
+
+                groupId = 'rocks.chadmorrow'
+                artifactId = 'timelytextview'
+                version = '1.1'
+            }
         }
     }
 }
